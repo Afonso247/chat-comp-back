@@ -1,5 +1,5 @@
 const OpenAI = require('openai');
-const config = require('../../kokomai-config.json');
+const config = require('../chatbot-config.json');
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
