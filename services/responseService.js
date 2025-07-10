@@ -10,7 +10,6 @@ async function generateBaseResponse(prompt) {
   const response = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [
-      { role: "system", content: "Você é um assistente útil." },
       { role: "user", content: prompt }
     ],
     max_tokens: 500
