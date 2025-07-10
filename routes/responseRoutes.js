@@ -6,6 +6,7 @@ router.post('/', async (req, res) => {
   const { prompt } = req.body;
   
   try {
+    console.log(prompt);
     // Gerar respostas
     const baseResponse = await generateBaseResponse(prompt);
     const anaResponse = await generateAnaResponse(prompt);
