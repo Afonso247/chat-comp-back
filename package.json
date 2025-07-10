@@ -16,5 +16,8 @@
     "express": "^5.1.0",
     "mongoose": "^8.16.1",
     "openai": "^5.8.2"
+  },
+  "engines": {
+    "node": "20.19.3"
   }
 }
