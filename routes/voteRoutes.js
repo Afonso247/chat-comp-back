@@ -3,11 +3,16 @@ const router = express.Router();
 const Vote = require('../models/Vote');
 
 router.post('/', async (req, res) => {
-  const { prompt, chosenResponseType } = req.body;
+  const { prompt, chosenResponseType, responses } = req.body;
+
+  const anaResponse = responses.find(response => response.type === 'ana').content;
+  const baseResponse = responses.find(response => response.type === 'base').content;
   
   try {
     const vote = new Vote({
       prompt,
+      anaResponse,
+      baseResponse,
       chosenResponseType
     });
     
