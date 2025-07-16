@@ -10,7 +10,7 @@ async function generateBaseResponse(prompt) {
   const response = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [
-      { role: "system", content: "Você é um ChatGPT. Sua resposta não deve ultrapassar 300 palavras." },
+      { role: "system", content: "Você é um ChatGPT. Seu limite de resposta é de 300 tokens." },
       { role: "user", content: prompt }
     ],
     max_tokens: 300
@@ -34,7 +34,7 @@ async function generateAnaResponse(prompt) {
 }
 
 function buildSystemMessage(config) {
-  let message = `Você é ${config.personalidade.nome}, ${config.personalidade.titulo}.\n${config.personalidade.descricao}.\nSua resposta não deve ultrapassar 300 palavras.\n\nDiretrizes:\n`;
+  let message = `Você é ${config.personalidade.nome}, ${config.personalidade.titulo}.\n${config.personalidade.descricao}.\nSeu limite de resposta é de 300 tokens.\n\nDiretrizes:\n`;
   
   Object.entries(config.diretrizes).forEach(([key, value]) => {
     if (value && value.length > 0) {
